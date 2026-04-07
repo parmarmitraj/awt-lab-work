@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete Student - Student Management System{% endblock %}
+
+{% block content %}
+<h1>Delete Student</h1>
+
+<div class="alert alert-danger mt-4">
+    <h4>Are you sure?</h4>
+    <p>Do you want to delete <strong>{{ student.name }}</strong> (Roll No: <strong>{{ student.roll_no }}</strong>)?</p>
+    <p class="text-muted">This action cannot be undone.</p>
+</div>
+
+<form method="POST" class="mt-4">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger btn-lg">Delete Student</button>
+    <a href="{% url 'student_list' %}" class="btn btn-secondary btn-lg">Cancel</a>
+</form>
+{% endblock %}
