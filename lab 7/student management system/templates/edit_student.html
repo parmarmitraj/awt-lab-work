@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Student - Student Management System{% endblock %}
+
+{% block content %}
+<h1>Edit Student Information</h1>
+
+<form method="POST" class="mt-4">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="roll_no" class="form-label">Roll Number</label>
+                <input type="text" class="form-control" id="roll_no" name="roll_no" value="{{ student.roll_no }}" required>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="name" name="name" value="{{ student.name }}" required>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" value="{{ student.email }}" required>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" name="phone" value="{{ student.phone }}" maxlength="10" required>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="course" class="form-label">Course</label>
+                <select class="form-control" id="course" name="course" required>
+                    <option value="B.Tech" {% if student.course == 'B.Tech' %}selected{% endif %}>B.Tech</option>
+                    <option value="M.Tech" {% if student.course == 'M.Tech' %}selected{% endif %}>M.Tech</option>
+                    <option value="BCA" {% if student.course == 'BCA' %}selected{% endif %}>BCA</option>
+                    <option value="MCA" {% if student.course == 'MCA' %}selected{% endif %}>MCA</option>
+                    <option value="BA" {% if student.course == 'BA' %}selected{% endif %}>BA</option>
+                    <option value="MA" {% if student.course == 'MA' %}selected{% endif %}>MA</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="batch" class="form-label">Batch</label>
+                <input type="text" class="form-control" id="batch" name="batch" value="{{ student.batch }}" required>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group mt-4">
+        <button type="submit" class="btn btn-primary btn-lg">Update Student</button>
+        <a href="/" class="btn btn-secondary btn-lg">Cancel</a>
+    </div>
+</form>
+{% endblock %}
